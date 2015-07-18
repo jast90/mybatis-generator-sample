@@ -40,7 +40,7 @@ mybatis-generator-sample
          <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                          connectionURL="jdbc:mysql://localhost:3306/mybatis_generator"
                          userId="root"
-                         password="zzwzzw">
+                         password="">
          </jdbcConnection>
          <!--默认false
             Java type resolver will always use java.math.BigDecimal if the database column is of type DECIMAL or NUMERIC.
@@ -68,16 +68,16 @@ mybatis-generator-sample
          <table tableName="pet" />
  
      </context>
- </generatorConfiguration>```
+ </generatorConfiguration>
+ ```
+ 
 
 3.运行mybatis-generator-maven-plugin
 
 命令：
-
 ```
 mvn mybatis-generator:generate
 ```
-
 运行后就会生成相应的文件了。
 
 4.说明
