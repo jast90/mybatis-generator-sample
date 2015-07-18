@@ -2,11 +2,13 @@
 <!DOCTYPE generatorConfiguration
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
 <generatorConfiguration>
     <!--数据库驱动jar -->
-    <classPathEntry location="E:\mysql-jdbc-5.1.25.jar" />
+    <classPathEntry location="/home/zhiwen/java/mysql-connector-java-5.1.6.jar" />
 
-    <context id="DB2Tables" targetRuntime="MyBatis3">
+    <context id="MysqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
         <!--去除注释  -->
         <commentGenerator>
             <property name="suppressAllComments" value="true" />
@@ -14,9 +16,9 @@
 
         <!--数据库连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3307/mybatis-generator"
+                        connectionURL="jdbc:mysql://localhost:3306/mybatis_generator"
                         userId="root"
-                        password="123456">
+                        password="zzwzzw">
         </jdbcConnection>
         <!--默认false
            Java type resolver will always use java.math.BigDecimal if the database column is of type DECIMAL or NUMERIC.
@@ -26,24 +28,22 @@
         </javaTypeResolver>
 
         <!--生成实体类 指定包名 以及生成的地址 （可以自定义地址，但是路径不存在不会自动创建  使用Maven生成在target目录下，会自动创建） -->
-        <javaModelGenerator targetPackage="org.jast.entity" targetProject="D:\mybatis-generator-sample\src\main\java">
+        <javaModelGenerator targetPackage="org.jast.mybatisgenerator.entity" targetProject="/home/zhiwen/IdeaProjects/mybatis-generator-sample/src/main/java">
             <property name="enableSubPackages" value="false" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
         <!--生成SQLMAP文件 -->
-        <sqlMapGenerator targetPackage="org.jast.persistence.xml"  targetProject="D:\mybatis-generator-sample\src\main\resources">
+        <sqlMapGenerator targetPackage="org.jast.mybatisgenerator.mapper"  targetProject="/home/zhiwen/IdeaProjects/mybatis-generator-sample/src/main/resources">
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
         <!--生成Dao文件 可以配置 type="XMLMAPPER"生成xml的dao实现  context id="DB2Tables" 修改targetRuntime="MyBatis3"  -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="org.jast.dao"  targetProject="D:\mybatis-generator-sample\src\main\java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.jast.mybatisgenerator.dao"  targetProject="/home/zhiwen/IdeaProjects/mybatis-generator-sample/src/main/java">
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
 
         <!--对应数据库表 mysql可以加入主键自增 字段命名 忽略某字段等-->
-        <table tableName="t_use" domainObjectName="User" >
-        </table>
-        <table tableName="t_article" domainObjectName="Article" >
-        </table>
+        <table tableName="person" />
+        <table tableName="pet" />
 
     </context>
 </generatorConfiguration>
